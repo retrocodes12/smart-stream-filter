@@ -1,0 +1,27 @@
+{
+  "id": "org.smart.streamfilter",
+  "name": "Smart Stream Filter",
+  "description": "Hardware-aware stream filter for weak TVs and low-power devices",
+  "resources": ["stream"],
+  "types": ["movie", "series"],
+  "catalogs": [],
+  "behaviorHints": {
+    "configurable": true
+  },
+  "config": [
+    {
+      "key": "profile",
+      "type": "select",
+      "title": "Device Profile",
+      "options": ["WEAK_TV", "ANDROID_TV", "PC"],
+      "default": "WEAK_TV"
+    },
+    {
+      "key": "auto_pick",
+      "type": "boolean",
+      "title": "Auto Pick Best Stream",
+      "description": "Automatically pick the best playable stream",
+      "default": false
+    }
+  ]
+}
