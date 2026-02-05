@@ -1,6 +1,7 @@
 {
   "id": "org.smart.streamfilter",
   "name": "Smart Stream Filter",
+  "version": "1.0.0",
   "description": "Hardware-aware stream filter for weak TVs and low-power devices",
   "resources": ["stream"],
   "types": ["movie", "series"],
