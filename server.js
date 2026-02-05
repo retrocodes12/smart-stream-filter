@@ -2,7 +2,8 @@ import { createServer } from "http";
 import { promises as fs } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { addonBuilder, serveHTTP } from "stremio-addon-sdk";
+import pkg from "stremio-addon-sdk";
+const { addonBuilder, serveHTTP } = pkg;
 
 import { PROFILES } from "./src/profiles.js";
 import { evaluateStream } from "./src/filter.js";
