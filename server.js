@@ -3,6 +3,7 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import pkg from "stremio-addon-sdk";
 const { addonBuilder, serveHTTP } = pkg;
+import express from "express";
 
 import { PROFILES } from "./src/profiles.js";
 import { evaluateStream } from "./src/filter.js";
@@ -200,7 +201,14 @@ builder.defineStreamHandler(async (args) => {
 });
 
 const addon = builder.getInterface();
+
+const app = express();
+app.get("/", (_req, res) => {
+  res.status(200).send("OK");
+});
+
 serveHTTP(addon, {
+  server: app,
   host: "0.0.0.0",
   port: Number(process.env.PORT)
 });
