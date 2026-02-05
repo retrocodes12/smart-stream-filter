@@ -215,3 +215,5 @@ const server = createServer((req, res) => {
 });
 
 server.listen(Number(process.env.PORT), "0.0.0.0");
+
+process.stdin.resume();
