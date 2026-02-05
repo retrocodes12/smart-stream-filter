@@ -1,4 +1,3 @@
-import { createServer } from "http";
 import { promises as fs } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -201,7 +200,9 @@ builder.defineStreamHandler(async (args) => {
 });
 
 const addonInterface = builder.getInterface();
-
-const server = createServer((req, res) => serveHTTP(addonInterface, req, res));
 const port = process.env.PORT || 7000;
-server.listen(port);
+
+serveHTTP(addonInterface, {
+  port,
+  host: "0.0.0.0"
+});
