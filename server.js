@@ -200,9 +200,8 @@ builder.defineStreamHandler(async (args) => {
 });
 
 const addonInterface = builder.getInterface();
-const port = process.env.PORT || 7000;
 
 serveHTTP(addonInterface, {
-  port,
-  host: "0.0.0.0"
+  host: "0.0.0.0",
+  port: process.env.PORT
 });
