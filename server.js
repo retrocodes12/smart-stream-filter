@@ -1,4 +1,3 @@
-import { createServer } from "http";
 import { promises as fs } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -201,19 +200,8 @@ builder.defineStreamHandler(async (args) => {
 });
 
 const addon = builder.getInterface();
-const addonHandler = serveHTTP(addon);
 
-const server = createServer((req, res) => {
-  const path = req?.url?.split("?")[0] || "";
-  if (path === "/" || path === "/health") {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/plain");
-    res.end("OK");
-    return;
-  }
-  addonHandler(req, res);
+serveHTTP(addon, {
+  host: "0.0.0.0",
+  port: Number(process.env.PORT)
 });
-
-server.listen(Number(process.env.PORT), "0.0.0.0");
-
-process.stdin.resume();
