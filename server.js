@@ -201,6 +201,7 @@ builder.defineStreamHandler(async (args) => {
 
 const addon = builder.getInterface();
 
+console.log("PORT env:", process.env.PORT);
 serveHTTP(addon, {
   host: "0.0.0.0",
   port: Number(process.env.PORT)
