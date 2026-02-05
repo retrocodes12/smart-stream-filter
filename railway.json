@@ -1,0 +1,11 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "services": [
+    {
+      "name": "smart-stream-filter",
+      "healthcheck": {
+        "disable": true
+      }
+    }
+  ]
+}
